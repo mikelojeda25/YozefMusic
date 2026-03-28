@@ -24,4 +24,12 @@ public class SongRepository : ISongRepository
     return await connection.QueryAsync<SongDTO>("sp_GetAllSongs", 
       commandType: CommandType.StoredProcedure);
   }
+
+  public async Task InsertSong(SongDTO song)
+{
+    using var connection = new SqlConnection(_connectionString);
+    await connection.ExecuteAsync("sp_InsertSong",
+        new { song.SongTitle, song.SongDescription, song.AlbumID, song.Genre },
+        commandType: CommandType.StoredProcedure);
+}
 }
