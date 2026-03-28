@@ -18,5 +18,8 @@ public class SongService : ISongService
     return await _songRepository.GetAllSongs();
   }
 
-  
+  public async Task InsertSong(SongDTO song)
+{
+    await _songRepository.InsertSong(song);
+}
 }
