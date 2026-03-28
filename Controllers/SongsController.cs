@@ -1,4 +1,8 @@
 using YozefMusic.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using YozefMusic.Services.Interfaces;
+
+namespace YozefMusic.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
