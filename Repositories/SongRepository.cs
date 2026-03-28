@@ -25,7 +25,7 @@ public class SongRepository : ISongRepository
       commandType: CommandType.StoredProcedure);
   }
 
-  public async Task InsertSong(SongDTO song)
+  public async Task InsertSong(CreateSongDTO song)
 {
     using var connection = new SqlConnection(_connectionString);
     await connection.ExecuteAsync("sp_InsertSong",

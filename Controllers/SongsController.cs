@@ -1,6 +1,7 @@
 using YozefMusic.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using YozefMusic.Services.Interfaces;
+using YozefMusic.DTOs;
+
 
 namespace YozefMusic.Controllers;
 
@@ -20,5 +21,12 @@ public class SongsController : ControllerBase
     {
         var songs = await _songService.GetAllSongs();
         return Ok(songs);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> InsertSong(CreateSongDTO song)
+    {
+        await _songService.InsertSong(song);
+        return Ok("Song added successfully!");
     }
 }
